@@ -75,11 +75,6 @@ public class HelloWorld
                                                        foreign key(property_id) references property(property_id) on delete cascade on update cascade,
                                                        foreign key(type_id) references type(type_id) on delete cascade on update cascade,
                                                        UNIQUE(property_id, type_id));");
-        Console.WriteLine(@"CREATE TABLE property_slot(property_id integer not null,
-                                                       slot_id integer not null,
-                                                       foreign key(property_id) references property(property_id) on delete cascade on update cascade,
-                                                       foreign key(slot_id) references slot(slot_id) on delete cascade on update cascade,
-                                                       UNIQUE(property_id, slot_id));");
         foreach(KeyValuePair<string, DDOItemProperty> entry in Dataset.ItemProperties){
             Console.WriteLine(String.Format("INSERT INTO property(name) VALUES(\"{0}\");", entry.Value.Property));
             foreach(String type in entry.Value.Types)
@@ -90,15 +85,6 @@ public class HelloWorld
                     Console.WriteLine(String.Format("INSERT INTO property_type VALUES ((SELECT property_id FROM property WHERE name=\"{0}\"),(SELECT type_id FROM type WHERE name=\"{1}\"));",
                         entry.Value.Property,
                         type));
-                }
-            }
-            foreach(String slot in entry.Value.SlotsFoundOn.ToString().Split(", "))
-            {
-                if(slot != "None")
-                {
-                    Console.WriteLine(String.Format("INSERT INTO property_slot VALUES ((SELECT property_id FROM property WHERE name=\"{0}\"),(SELECT slot_id FROM slot WHERE name=\"{1}\"));",
-                        entry.Value.Property,
-                        slot));
                 }
             }
         }
