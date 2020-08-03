@@ -16,7 +16,7 @@ sealed class TypeMapBinder : SerializationBinder
         String exeAssembly = Assembly.GetExecutingAssembly().FullName;
         if(typeName.Contains("System.Collections.Generic"))
         {
-            typeName = typeName.Replace("DDONamedGearPlanner, Version=1.0.0.0", "extract, Version=0.0.0.0");
+            typeName = typeName.Replace("DDONamedGearPlanner, Version=1.0.0.0", "export, Version=0.0.0.0");
             typeToDeserialize = Type.GetType(typeName);
         }
         else
@@ -270,6 +270,6 @@ public class HelloWorld
         WriteSets();
         Console.WriteLine("COMMIT;");
 
-        Console.Error.WriteLine("Dump to ddodata.dump complete");
+        Console.Error.WriteLine("Dump complete");
     }
 }
