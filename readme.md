@@ -1,6 +1,6 @@
 # DDONamedGearPlanner
 
-This project was created by [Pfhoenix](https://github.com/Pfhoenix/). It aims to streamline the DDO gear tetris game through facilitating item discovery and combinations. It is GUI windows forms application (written in C#).
+This project was created by [Pfhoenix](https://github.com/Pfhoenix/). It aims to streamline the DDO gear tetris game through facilitating item discovery and combinations. The user interface is rendered using Windows Presentation Foundation (written in C#).
 
 The lastest release can always be downloaded [here](https://github.com/Pfhoenix/DDONamedGearPlanner/releases).
 
